@@ -832,7 +832,7 @@
 
         let menuTimes = {
             '見学のみ': 45,
-            'マシン体験(お一人様1回のみ)': 45,
+            'マシン体験 (お一人様1回のみ)': 45,
             'マシーン体験': 45
         };
 
@@ -979,15 +979,14 @@
             const treatmentText = document.getElementById('treatment-text');
 
             if (updatedSelectedButtons.length === 0) {
-                selectedMenuTime = 0;
-                selectedSymptom = null;
+                selectedMenuTime = 0;      // ← ここは0に戻してOK
+                selectedSymptom = [];      // ← null ではなく空配列にすると安全
                 menuPrice = 0;
                 treatmentText.style.display = 'none';
                 treatmentText.innerHTML = '';
                 updateDisplayInfo();
                 return;
             } else {
-                // 1つだけ選択状態にする
                 if (updatedSelectedButtons.length > 1) {
                     updatedSelectedButtons.forEach(btn => btn.classList.remove('active'));
                     button.classList.add('active');
@@ -1002,14 +1001,16 @@
             } else {
                 treatmentText.innerHTML = '';
             }
-
-            // ★ 位置は動かさず、表示だけ切り替える ★
             treatmentText.style.display = 'block';
 
             // 選択されたメニューの名前と価格を取得
-            const symptomName = button.textContent;
+            let symptomName = button.textContent.trim();
             selectedSymptom = [symptomName];
             menuPrice = parseInt(button.getAttribute('data-price'), 10) || 0;
+
+            // ★ ここを追加：メニューに応じて時間をセット
+            // キーとボタンの表示が完全一致するように注意（スペースに注意）
+            selectedMenuTime = menuTimes[symptomName] || 0;
 
             // 表示を更新
             updateDisplayInfo();
