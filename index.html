@@ -300,11 +300,20 @@
             cursor: pointer;
         }
 
+        /* 通常の ◯ 表示 */
         .calendar td.available {
-            color: #d90000 !important;
+            color: #d90000;
+            /* ← !important を外す */
             font-weight: 900;
             font-size: 1em;
             cursor: pointer;
+        }
+
+        /* タップして選択されたとき */
+        .calendar td.selected {
+            background-color: #111 !important;
+            color: #fff !important;
+            border-color: #111;
         }
 
         .unavailable {
