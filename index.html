@@ -1093,7 +1093,7 @@
             }
         }
 
-        function updateDisplayInfo() {
+function updateDisplayInfo() {
             const name = document.getElementById('name').value;
 
             const labelStyle = "color:#0c0c0c; font-size:14px; border:1px solid #0c0c0c; padding:0px 3px; border-radius:4px;";
@@ -1119,7 +1119,8 @@
             let minutes = totalMinutes % 60;
             let totalTimeText = `<span style="${labelStyle}"><strong>所要時間</strong></span> ${hours > 0 ? hours + '時間' : ''}${minutes}分`;
 
-            const totalAmountText = `<span style="${labelStyle}"><strong>合計金額</strong></span> ¥${menuPrice + optionsPrice}`;
+            // 金額をカンマ区切り（例: 10,000）にするために toLocaleString() を追加しました
+            const totalAmountText = `<span style="${labelStyle}"><strong>合計金額</strong></span> ¥${(menuPrice + optionsPrice).toLocaleString()}`;
 
             const selectedDateText = selectedFullDate
                 ? `<span style="${labelStyle}"><strong>希望日時</strong></span> ${selectedFullDate}`
@@ -1152,7 +1153,12 @@
             <button class="edit-button" onclick="scrollToElement('calendar1')">修正</button>
         </div>
         <hr>
-    `;
+        
+        <div class="info-row">
+            <p>${totalAmountText}</p>
+        </div>
+        <hr>
+        `;
         }
 
         // スクロール関数
@@ -1392,24 +1398,24 @@
             // 1回目と2回目以降で表示するメニューのHTMLを作成
             if (element.id === 'firstVisit') {
                 menuHtml = `
-            <button type="button" onclick="selectSymptom(this, 'treatment1')" data-price="15000">【体験】整肌（パック）</button>
-            <button type="button" onclick="selectSymptom(this, 'treatment2')" data-price="45000">整肌（パック）コース(全3回)</button>
+            <button type="button" onclick="selectSymptom(this, 'treatment1')" data-price="8000">【体験】整肌（パック）</button>
+            <button type="button" onclick="selectSymptom(this, 'treatment2')" data-price="10000">整肌（パック）コース(全3回)</button>
             
-            <button type="button" onclick="selectSymptom(this, 'treatment3')" data-price="15000">【体験】毛穴スッキリ</button>
-            <button type="button" onclick="selectSymptom(this, 'treatment4')" data-price="45000">毛穴スッキリコース(全3回)</button>
+            <button type="button" onclick="selectSymptom(this, 'treatment3')" data-price="9600">【体験】毛穴スッキリ</button>
+            <button type="button" onclick="selectSymptom(this, 'treatment4')" data-price="12000">毛穴スッキリコース(全3回)</button>
             
-            <button type="button" onclick="selectSymptom(this, 'treatment5')" data-price="15000">【体験】シミ、リセット</button>
-            <button type="button" onclick="selectSymptom(this, 'treatment6')" data-price="45000">シミ、リセットコース(全3回)</button>
+            <button type="button" onclick="selectSymptom(this, 'treatment5')" data-price="12000">【体験】シミ、リセット</button>
+            <button type="button" onclick="selectSymptom(this, 'treatment6')" data-price="15000">シミ、リセットコース(全3回)</button>
             
-            <button type="button" onclick="selectSymptom(this, 'treatment7')" data-price="15000">【体験】ほうれい線撃退</button>
-            <button type="button" onclick="selectSymptom(this, 'treatment8')" data-price="45000">ほうれい線撃退コース(全3回)</button>
+            <button type="button" onclick="selectSymptom(this, 'treatment7')" data-price="12000">【体験】ほうれい線撃退</button>
+            <button type="button" onclick="selectSymptom(this, 'treatment8')" data-price="15000">ほうれい線撃退コース(全3回)</button>
         `;
             } else {
                 menuHtml = `
-            <button type="button" onclick="selectSymptom(this, 'treatment9')" data-price="45000">整肌（パック）コース(全3回)</button>
-            <button type="button" onclick="selectSymptom(this, 'treatment10')" data-price="45000">毛穴スッキリコース(全3回)</button>
-            <button type="button" onclick="selectSymptom(this, 'treatment11')" data-price="45000">シミ、リセットコース(全3回)</button>
-            <button type="button" onclick="selectSymptom(this, 'treatment12')" data-price="45000">ほうれい線撃退コース(全3回)</button>
+            <button type="button" onclick="selectSymptom(this, 'treatment9')" data-price="10000">整肌（パック）コース(全3回)</button>
+            <button type="button" onclick="selectSymptom(this, 'treatment10')" data-price="12000">毛穴スッキリコース(全3回)</button>
+            <button type="button" onclick="selectSymptom(this, 'treatment11')" data-price="15000">シミ、リセットコース(全3回)</button>
+            <button type="button" onclick="selectSymptom(this, 'treatment12')" data-price="15000">ほうれい線撃退コース(全3回)</button>
         `;
             }
 
@@ -1421,7 +1427,7 @@
             
             // オプションボタンのHTML（価格は data-price で設定 ※ここでは仮に2200円としています）
             let optionHtml = `
-                <button type="button" id="celser" onclick="selectirradiations(this, 'treatment13')" data-price="2200">セルサーコース</button>
+                <button type="button" id="celser" onclick="selectirradiations(this, 'treatment13')" data-price="5000">セルサーコース</button>
             `;
             
             // オプションボタンを書き換え
