@@ -1264,28 +1264,28 @@ function updateDisplayInfo() {
             // ※料金はボタンのdata-priceではなく、ここの定義が優先されます
             if (treatmentId === 'treatment1') {
                 selectedMenuTime = 90;
-                treatmentText.innerHTML = `</div><div style="text-align: right;"><strong>初回料金：<span style="color: red;">8,000円</span></strong></div>`;
+                treatmentText.innerHTML = `</div><div style="text-align: right;"><strong>初回体験料金：<span style="color: red;">8,000円</span></strong></div>`;
             } else if (treatmentId === 'treatment2') {
                 selectedMenuTime = 90;
-                treatmentText.innerHTML = `</div><div style="text-align: right;"><strong>3回：30,000円<br>1回：10,000円</strong></div>`;
+                treatmentText.innerHTML = `</div><div style="text-align: right;"><strong>3回：30,000円</strong></div>`;
             } else if (treatmentId === 'treatment3') {
                 selectedMenuTime = 90;
-                treatmentText.innerHTML = `</div><div style="text-align: right;"><strong>初回料金：<span style="color: red;">9,600円</span></strong></div>`;
+                treatmentText.innerHTML = `</div><div style="text-align: right;"><strong>初回体験料金：<span style="color: red;">9,600円</span></strong></div>`;
             } else if (treatmentId === 'treatment4') {
                 selectedMenuTime = 90;
-                treatmentText.innerHTML = `</div><div style="text-align: right;"><strong>3回：36,000円<br>1回：12,000円</strong></div>`;
+                treatmentText.innerHTML = `</div><div style="text-align: right;"><strong>3回：36,000円</strong></div>`;
             } else if (treatmentId === 'treatment5') {
                 selectedMenuTime = 90;
-                treatmentText.innerHTML = `</div><div style="text-align: right;"><strong>初回料金：<span style="color: red;">12,000円</span></strong></div>`;
+                treatmentText.innerHTML = `</div><div style="text-align: right;"><strong>初回体験料金：<span style="color: red;">12,000円</span></strong></div>`;
             } else if (treatmentId === 'treatment6') {
                 selectedMenuTime = 90;
-                treatmentText.innerHTML = `</div><div style="text-align: right;"><strong>3回：45,000円<br>1回：15,000円</strong></div>`;
+                treatmentText.innerHTML = `</div><div style="text-align: right;"><strong>3回：45,000円</strong></div>`;
             } else if (treatmentId === 'treatment7') {
                 selectedMenuTime = 90;
-                treatmentText.innerHTML = `</div><div style="text-align: right;"><strong>初回料金：<span style="color: red;">12,000円</span></strong></div>`;
+                treatmentText.innerHTML = `</div><div style="text-align: right;"><strong>初回体験料金：<span style="color: red;">12,000円</span></strong></div>`;
             } else if (treatmentId === 'treatment8') {
                 selectedMenuTime = 90;
-                treatmentText.innerHTML = `</div><div style="text-align: right;"><strong>3回：45,000円<br>1回：15,000円</strong></div>`;
+                treatmentText.innerHTML = `</div><div style="text-align: right;"><strong>3回：45,000円</strong></div>`;
             } else if (treatmentId === 'treatment9') {
                 selectedMenuTime = 90;
                 treatmentText.innerHTML = `</div><div style="text-align: right;"><strong>3回：30,000円<br>1回：10,000円</strong></div>`;
@@ -1398,16 +1398,16 @@ function updateDisplayInfo() {
             // 1回目と2回目以降で表示するメニューのHTMLを作成
             if (element.id === 'firstVisit') {
                 menuHtml = `
-            <button type="button" onclick="selectSymptom(this, 'treatment1')" data-price="8000">【体験】整肌（パック）</button>
+            <button type="button" onclick="selectSymptom(this, 'treatment1')" data-price="8000">【初回体験】整肌（パック）</button>
             <button type="button" onclick="selectSymptom(this, 'treatment2')" data-price="10000">整肌（パック）コース(全3回)</button>
             
-            <button type="button" onclick="selectSymptom(this, 'treatment3')" data-price="9600">【体験】毛穴スッキリ</button>
+            <button type="button" onclick="selectSymptom(this, 'treatment3')" data-price="9600">【初回体験】毛穴スッキリ</button>
             <button type="button" onclick="selectSymptom(this, 'treatment4')" data-price="12000">毛穴スッキリコース(全3回)</button>
             
-            <button type="button" onclick="selectSymptom(this, 'treatment5')" data-price="12000">【体験】シミ、リセット</button>
+            <button type="button" onclick="selectSymptom(this, 'treatment5')" data-price="12000">【初回体験】シミ、リセット</button>
             <button type="button" onclick="selectSymptom(this, 'treatment6')" data-price="15000">シミ、リセットコース(全3回)</button>
             
-            <button type="button" onclick="selectSymptom(this, 'treatment7')" data-price="12000">【体験】ほうれい線撃退</button>
+            <button type="button" onclick="selectSymptom(this, 'treatment7')" data-price="12000">【初回体験】ほうれい線撃退</button>
             <button type="button" onclick="selectSymptom(this, 'treatment8')" data-price="15000">ほうれい線撃退コース(全3回)</button>
         `;
             } else {
@@ -1973,3 +1973,4 @@ function submitForm() {
 </body>
 
 </html>
+
